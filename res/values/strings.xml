@@ -2,4 +2,8 @@
 <resources>
     <string name="hello">Hello World, TabLayout!</string>
     <string name="app_name">Cashflow</string>
+    <string name="izhod">izhod</string>
+    <color name="barva_odzadja">#87cefa</color>
+    <color name="barva_gumba">#eedd82</color>
+    <color name="crno_besedilo">#000000</color>
 </resources>

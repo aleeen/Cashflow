@@ -1,18 +1,33 @@
 package edu.alen.Cashflow.android;
 
+
 import android.app.TabActivity;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.Color;
 import android.os.Bundle;
+
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
 import android.widget.TabHost;
 
-public class TabLayout extends TabActivity {
-    /** Called when the activity is first created. */
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
+public class TabLayout extends TabActivity implements OnClickListener 
+{
+	Button Izhod;
+	Button Nastavitve;
+	
+    public void onCreate(Bundle savedInstanceState) 
+    {
+    		
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
+        
+        Izhod=(Button)findViewById(R.id.izhod);
+        Nastavitve=(Button)findViewById(R.id.nastavitve);
+        
+		Izhod.setOnClickListener(this);
+		Nastavitve.setOnClickListener(this);
         
         Resources res = getResources(); // Resource object to get Drawables
 		TabHost tabHost = getTabHost(); // The activity TabHost
@@ -39,4 +54,19 @@ public class TabLayout extends TabActivity {
 		tabHost.getTabWidget().setBackgroundColor(Color.parseColor("#87cefa"));
 
     }
+    
+	@Override
+	public void onClick(View v) {
+
+		if(v.getId()==R.id.izhod)
+		{
+			setResult(RESULT_CANCELED);
+			finish();
+		}
+		else if(v.getId()==R.id.nastavitve)
+		{
+			Intent i= new Intent(this.getApplicationContext(),NastavitveActivity.class);
+			startActivity(i);
+		}
+	}
 }
