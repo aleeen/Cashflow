@@ -8,10 +8,16 @@
 		<TabWidget android:id="@android:id/tabs"
 			android:layout_width="fill_parent" android:layout_height="wrap_content"
 			/>
+		<LinearLayout android:id="@+id/linearLayout4" android:layout_width="match_parent" android:layout_height="wrap_content">
+			<LinearLayout android:id="@+id/LinearLayout01" android:layout_width="match_parent" android:layout_height="wrap_content">
+				<Button android:layout_height="wrap_content" android:paddingLeft="115px" android:background="@drawable/dodaj" android:id="@+id/dodaj" android:layout_width="wrap_content"></Button>
+				<Button android:layout_height="wrap_content" android:background="@drawable/izbrisi" android:id="@+id/izbrisi" android:layout_width="match_parent"></Button>
+			</LinearLayout>
+		</LinearLayout>
 		<FrameLayout android:id="@android:id/tabcontent"
 			android:layout_width="fill_parent" android:layout_height="fill_parent"
 			>
-			<LinearLayout android:id="@+id/linearLayout1" android:layout_height="wrap_content" android:layout_width="match_parent" android:paddingBottom="200px" android:baselineAligned="false">
+			<LinearLayout android:id="@+id/linearLayout1" android:layout_width="match_parent" android:baselineAligned="false" android:paddingBottom="160px" android:layout_height="match_parent">
 			</LinearLayout>
 		</FrameLayout>
 		<LinearLayout android:id="@+id/linearLayout2" android:layout_height="wrap_content" android:layout_width="match_parent" android:gravity="center" android:baselineAligned="false">

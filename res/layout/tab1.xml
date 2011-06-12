@@ -1,5 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	android:layout_width="fill_parent" android:layout_height="fill_parent"
-	android:id="@+id/tab1Layout" android:orientation="vertical">
+	android:id="@+id/tab1Layout" android:orientation="vertical" android:background="@color/barva_odzadja" android:alwaysDrawnWithCache="false">
+    <LinearLayout android:layout_alignParentLeft="true" android:layout_height="wrap_content" android:id="@+id/linearLayout1" android:layout_width="match_parent" android:orientation="vertical">
+        <LinearLayout android:layout_height="match_parent" android:id="@+id/linearLayout3" android:layout_width="match_parent">
+            <ImageView android:layout_height="wrap_content" android:id="@+id/imageView1" android:src="@drawable/icon" android:layout_width="match_parent" android:paddingLeft="10px" android:paddingTop="10px"></ImageView>
+        </LinearLayout>
+        <LinearLayout android:layout_height="match_parent" android:id="@+id/linearLayout2" android:layout_width="match_parent" android:layout_marginTop="10px">
+            <TextView android:id="@+id/textView1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Skupaj:" android:textColor="@color/crno_besedilo" android:textSize="10pt" android:paddingLeft="35px" android:textStyle="bold"></TextView>
+            <TextView android:layout_width="wrap_content" android:id="@+id/skupaj" android:layout_height="wrap_content" android:textSize="16px" android:textColor="#FF0000" android:paddingLeft="6px"></TextView>
+            <TextView android:id="@+id/textView2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textColor="@color/crno_besedilo" android:textSize="10pt" android:text="  €"></TextView>
+        </LinearLayout>
+    </LinearLayout>
 </RelativeLayout>
