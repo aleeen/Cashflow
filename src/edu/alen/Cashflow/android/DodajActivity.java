@@ -66,18 +66,19 @@ public class DodajActivity extends Activity implements OnClickListener {
 					double aa= Double.parseDouble(a);
 					st.setCena(aa);
 					app.addDBStevci(st);
-					Toast.makeText(this, "Va¹ stro¹ek je bil dodan", Toast.LENGTH_SHORT).show();
+					Toast.makeText(this, "Vaï¿½ stroï¿½ek je bil dodan", Toast.LENGTH_SHORT).show();
 					
 					Intent i = new Intent();
-					i.setClass(this, StroskiListActivity.class);
-					startActivityForResult(i, TEST_LIST_ACTIVITY_ID);
+					i.setClass(this, TabLayout.class);
+					//startActivity(i, TEST_LIST_ACTIVITY_ID);
+					setResult(Activity.RESULT_OK);
 					
 					st.GetCena(); 
 					finish();
 				}			
 				else
 				{
-					Toast.makeText(this, "Ime str¹ka nesme biti prazno !!!!!", Toast.LENGTH_SHORT)
+					Toast.makeText(this, "Ime strï¿½ka nesme biti prazno !!!!!", Toast.LENGTH_SHORT)
 					.show();
 				}
 				double vsota=0;

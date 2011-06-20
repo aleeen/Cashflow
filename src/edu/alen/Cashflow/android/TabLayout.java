@@ -6,11 +6,11 @@ import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.Color;
 import android.os.Bundle;
-
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TabHost;
+import android.widget.TabHost.TabSpec;
 
 public class TabLayout extends TabActivity implements OnClickListener 
 {
@@ -18,6 +18,8 @@ public class TabLayout extends TabActivity implements OnClickListener
 	Button Nastavitve;
 	Button Dodaj;
 	
+	TabSpec stroski;
+	TabHost tabHost;
 	
     public void onCreate(Bundle savedInstanceState) 
     {
@@ -35,17 +37,18 @@ public class TabLayout extends TabActivity implements OnClickListener
 		Nastavitve.setOnClickListener(this);
         
         Resources res = getResources(); // Resource object to get Drawables
-		TabHost tabHost = getTabHost(); // The activity TabHost
+		tabHost = getTabHost(); // The activity TabHost
 
 		Intent intent1 = new Intent(this, SkupajActivity.class);
 		tabHost.addTab(tabHost.newTabSpec("Skupaj")
 				.setIndicator("Skupaj", res.getDrawable(R.drawable.ic_tab_skupaj))
 				.setContent(intent1));
 
-		Intent intent2 = new Intent(this, StroskiActivity.class);
-		tabHost.addTab(tabHost.newTabSpec("Stroski")
-				.setIndicator("Stro¹ki", res.getDrawable(R.drawable.ic_tab_stroski))
-				.setContent(intent2));
+		Intent intent2 = new Intent(this, StroskiListActivity.class);
+		stroski = tabHost.newTabSpec("Stroski")
+		.setIndicator("Stroï¿½ki", res.getDrawable(R.drawable.ic_tab_stroski))
+		.setContent(intent2);
+		tabHost.addTab(stroski);
 		tabHost.setCurrentTab(0);
 		
 		Intent intent3 = new Intent(this, GrafActivity.class);
@@ -76,7 +79,16 @@ public class TabLayout extends TabActivity implements OnClickListener
 		else if(v.getId()==R.id.dodaj)
 		{
 			Intent i= new Intent(this.getApplicationContext(),DodajActivity.class);
-			startActivity(i);
+			startActivityForResult(i, R.id.dodaj);
 		}
+	}
+	
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		// TODO Auto-generated method stub
+		super.onActivityResult(requestCode, resultCode, data);
+		
+		if(requestCode==R.id.dodaj)
+			tabHost.setCurrentTab(1);
 	}
 }

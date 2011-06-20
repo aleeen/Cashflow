@@ -71,7 +71,16 @@ public class Application1 extends Application{
 	public void addDBStevci(Stroski s) {
 		DBStevci.open();
 		s.setDbID(DBStevci.insertStroski(s));
+		stevci.add(s);
 		DBStevci.close();	
+	}
+
+	public void deleteElement(int arg2) {
+		Stroski tmps = stevci.getItem(arg2);
+		stevci.remove(tmps);
+		DBStevci.open();
+		DBStevci.deleteStroski(tmps.getDbID());
+		DBStevci.close();
 	}
 
 	
